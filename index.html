@@ -1,112 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Landing Page</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artificial Intelligence</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
 
-    header {
-      background: #007BFF;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
+        header {
+            background: #4caf50;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
 
-    section {
-      padding: 20px;
-      line-height: 1.6;
-    }
+        main {
+            padding: 2rem;
+            max-width: 800px;
+            margin: auto;
+            line-height: 1.6;
+        }
 
-    iframe {
-      width: 100%;
-      height: 600px;
-      border: none;
-      margin: 20px 0;
-    }
+        iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+            margin-top: 2rem;
+        }
 
-    .bubble-icon {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 60px;
-      height: 60px;
-      background: #28a745;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      cursor: pointer;
-      z-index: 1000;
-    }
+        .floating-icons {
+            position: fixed;
+            bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
 
-    .bubble-icon img {
-      width: 30px;
-      height: 30px;
-    }
-  </style>
+        .telephone-bubble {
+            right: 20px;
+            background-color: #0078d7;
+            border-radius: 50%;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .telephone-bubble img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .chat-bubble {
+            left: 20px;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Artificial Intelligence</h1>
-    <p>Explore the fascinating world of AI and its impact on our lives.</p>
-  </header>
+    <header>
+        <h1>Welcome to the Future of Artificial Intelligence</h1>
+    </header>
+    <main>
+        <p>
+            Artificial intelligence (AI) is revolutionizing the way we live and work. From powering virtual assistants to driving self-driving cars, AI technologies are creating smarter, more efficient systems for businesses and individuals alike.
+        </p>
+        <p>
+            Explore how AI can transform your life and work. Schedule a consultation using the calendar below or reach out to us directly using the convenient contact options.
+        </p>
+        <iframe src="https://calendly.com/your-calendly-link" title="Schedule a Consultation"></iframe>
+    </main>
 
-  <section>
-    <h2>What is Artificial Intelligence?</h2>
-    <p>Artificial Intelligence (AI) refers to the simulation of human intelligence in machines that are programmed to think like humans and mimic their actions. It encompasses a wide range of technologies including machine learning, natural language processing, robotics, and more.</p>
-    
-    <h3>Applications of AI</h3>
-    <ul>
-      <li>Healthcare: Diagnosing diseases, personalized treatment.</li>
-      <li>Finance: Fraud detection, algorithmic trading.</li>
-      <li>Retail: Customer recommendations, inventory management.</li>
-      <li>Transportation: Self-driving cars, traffic optimization.</li>
-    </ul>
-  </section>
+    <div class="floating-icons">
+        <!-- Telephone Bubble -->
+        <a href="https://optic-ai.vercel.app/call" class="telephone-bubble" title="Call Us">
+            <img src="https://cdn-icons-png.flaticon.com/512/3208/3208707.png" alt="Phone Icon">
+        </a>
 
-  <section>
-    <h2>Schedule a Meeting</h2>
-    <iframe src="https://calendly.com/your-calendly-url"></iframe>
-  </section>
-
-  <div class="bubble-icon" onclick="window.location.href='https://optic-ai.vercel.app/call';">
-    <img src="https://cdn-icons-png.flaticon.com/512/597/597177.png" alt="Call Icon">
-  </div>
-
-  <script>
-    (function() {
-      if (!window.chatbase || window.chatbase("getState") !== "initialized") {
-        window.chatbase = (...arguments) => {
-          if (!window.chatbase.q) { window.chatbase.q = []; }
-          window.chatbase.q.push(arguments);
-        };
-        window.chatbase = new Proxy(window.chatbase, {
-          get(target, prop) {
-            if (prop === "q") { return target.q; }
-            return (...args) => target(prop, ...args);
-          }
-        });
-      }
-      const onLoad = function() {
-        const script = document.createElement("script");
-        script.src = "https://www.chatbase.co/embed.min.js";
-        script.id = "8dx-iXHM4PYd6S6waVZCL";
-        script.domain = "www.chatbase.co";
-        document.body.appendChild(script);
-      };
-      if (document.readyState === "complete") {
-        onLoad();
-      } else {
-        window.addEventListener("load", onLoad);
-      }
-    })();
-  </script>
+        <!-- Chat Bubble -->
+        <script>
+            (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){
+                window.chatbase=(...arguments)=>{
+                    if(!window.chatbase.q){
+                        window.chatbase.q=[]
+                    }
+                    window.chatbase.q.push(arguments)
+                };
+                window.chatbase=new Proxy(window.chatbase,{
+                    get(target,prop){
+                        if(prop==="q"){
+                            return target.q
+                        }
+                        return(...args)=>target(prop,...args)
+                    }
+                })
+            }
+            const onLoad=function(){
+                const script=document.createElement("script");
+                script.src="https://www.chatbase.co/embed.min.js";
+                script.id="8dx-iXHM4PYd6S6waVZCL";
+                script.domain="www.chatbase.co";
+                document.body.appendChild(script)
+            };
+            if(document.readyState==="complete"){
+                onLoad()
+            }else{
+                window.addEventListener("load",onLoad)
+            }})();
+        </script>
+    </div>
 </body>
 </html>
