@@ -32,38 +32,58 @@
             height: 500px;
             border: none;
             margin-top: 2rem;
-        }
-
-        .floating-icons {
-            position: fixed;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+            display: none;
         }
 
         .telephone-bubble {
+            position: fixed;
             top: 20px;
             right: 20px;
-            position: fixed;
             background-color: #0078d7;
             border-radius: 50%;
-            padding: 15px;
+            width: 50px;
+            height: 50px;
             display: flex;
             justify-content: center;
             align-items: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             cursor: pointer;
+            z-index: 1000;
         }
 
         .telephone-bubble img {
-            width: 20px;
-            height: 20px;
+            width: 24px;
+            height: 24px;
         }
 
-        .chat-bubble {
-            bottom: 20px;
-            left: 20px;
+        #call-iframe {
             position: fixed;
+            top: 20%;
+            left: 10%;
+            width: 80%;
+            height: 60%;
+            z-index: 999;
+            background: white;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            display: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #close-iframe {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ff5c5c;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -82,40 +102,26 @@
     </main>
 
     <!-- Telephone Bubble -->
-    <a href="https://optic-ai.vercel.app/call" class="telephone-bubble" title="Call Us">
-        <img src="https://cdn-icons-png.flaticon.com/512/3208/3208707.png" alt="Phone Icon">
-    </a>
+    <div class="telephone-bubble" id="open-call">
+        <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone Icon">
+    </div>
 
-    <!-- Chat Bubble -->
+    <!-- Call Iframe -->
+    <div id="call-iframe">
+        <button id="close-iframe">×</button>
+        <iframe src="https://optic-ai.vercel.app/call" frameborder="0" style="width: 100%; height: 100%;"></iframe>
+    </div>
+
     <script>
-        (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){
-            window.chatbase=(...arguments)=>{
-                if(!window.chatbase.q){
-                    window.chatbase.q=[]
-                }
-                window.chatbase.q.push(arguments)
-            };
-            window.chatbase=new Proxy(window.chatbase,{
-                get(target,prop){
-                    if(prop==="q"){
-                        return target.q
-                    }
-                    return(...args)=>target(prop,...args)
-                }
-            })
-        }
-        const onLoad=function(){
-            const script=document.createElement("script");
-            script.src="https://www.chatbase.co/embed.min.js";
-            script.id="8dx-iXHM4PYd6S6waVZCL";
-            script.domain="www.chatbase.co";
-            document.body.appendChild(script)
-        };
-        if(document.readyState==="complete"){
-            onLoad()
-        }else{
-            window.addEventListener("load",onLoad)
-        }})();
+        // Show iframe when telephone bubble is clicked
+        document.getElementById("open-call").addEventListener("click", () => {
+            document.getElementById("call-iframe").style.display = "block";
+        });
+
+        // Close iframe when close button is clicked
+        document.getElementById("close-iframe").addEventListener("click", () => {
+            document.getElementById("call-iframe").style.display = "none";
+        });
     </script>
 </body>
 </html>
