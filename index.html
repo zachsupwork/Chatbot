@@ -3,101 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Landing Page</title>
+  <title>Artificial Intelligence Landing Page</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
+      background-color: #f4f4f9;
     }
-
     header {
-      background-color: #282c34;
+      background-color: #007acc;
       color: white;
+      padding: 1rem 2rem;
       text-align: center;
-      padding: 20px;
     }
-
-    section {
-      padding: 20px;
-      max-width: 800px;
-      margin: auto;
+    main {
+      padding: 2rem;
+      text-align: center;
     }
-
     iframe {
+      border: 0;
+      margin: 2rem auto;
+      display: block;
       width: 100%;
+      max-width: 600px;
       height: 600px;
-      border: none;
     }
-
-    .chatbot {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 350px;
-      height: 500px;
-      border: 2px solid #ccc;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    footer {
+      background-color: #333;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      margin-top: 2rem;
     }
   </style>
 </head>
 <body>
-
-<header>
-  <h1>Welcome to the Future of AI</h1>
-  <p>Discover the potential of Artificial Intelligence and schedule a meeting with us!</p>
-</header>
-
-<section>
-  <h2>About Artificial Intelligence</h2>
-  <p>
-    Artificial Intelligence (AI) is revolutionizing the way we live and work. From self-driving cars to personalized recommendations, AI is shaping the future of technology. 
-    Our AI solutions are designed to be ethical, scalable, and user-centric, empowering individuals and businesses to unlock their true potential.
-  </p>
-</section>
-
-<section>
-  <h2>Schedule a Meeting</h2>
-  <iframe src="https://calendly.com/your-calendly-link"></iframe>
-</section>
-
-<!-- Chatbot Section -->
-<div class="chatbot">
+  <header>
+    <h1>Welcome to the World of Artificial Intelligence</h1>
+  </header>
+  <main>
+    <section>
+      <h2>About Artificial Intelligence</h2>
+      <p>
+        Artificial Intelligence (AI) refers to the simulation of human intelligence in machines
+        that are programmed to think and act like humans. These systems can learn, reason, and
+        make decisions, revolutionizing industries such as healthcare, finance, and education.
+      </p>
+      <p>
+        Discover how AI can transform your business and daily life by scheduling a consultation.
+      </p>
+    </section>
+    <iframe src="https://calendly.com/your-calendly-link" title="Schedule a Meeting"></iframe>
+  </main>
+  <footer>
+    <p>© 2025 AI Solutions. All rights reserved.</p>
+  </footer>
   <script>
-    (function() {
-      if (!window.chatbase || window.chatbase("getState") !== "initialized") {
-        window.chatbase = (...arguments) => {
-          if (!window.chatbase.q) {
-            window.chatbase.q = [];
-          }
-          window.chatbase.q.push(arguments);
-        };
-        window.chatbase = new Proxy(window.chatbase, {
-          get(target, prop) {
-            if (prop === "q") {
-              return target.q;
-            }
-            return (...args) => target(prop, ...args);
-          },
-        });
-      }
-      const onLoad = function() {
-        const script = document.createElement("script");
-        script.src = "https://www.chatbase.co/embed.min.js";
-        script.id = "8dx-iXHM4PYd6S6waVZCL";
-        script.domain = "www.chatbase.co";
-        document.body.appendChild(script);
-      };
-      if (document.readyState === "complete") {
-        onLoad();
-      } else {
-        window.addEventListener("load", onLoad);
-      }
-    })();
+    (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="8dx-iXHM4PYd6S6waVZCL";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
   </script>
-</div>
-
 </body>
 </html>
