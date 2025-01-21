@@ -3,64 +3,110 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Artificial Intelligence Landing Page</title>
+  <title>AI Landing Page</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f4f4f9;
     }
+
     header {
-      background-color: #007acc;
+      background: #007BFF;
       color: white;
-      padding: 1rem 2rem;
+      padding: 20px;
       text-align: center;
     }
-    main {
-      padding: 2rem;
-      text-align: center;
+
+    section {
+      padding: 20px;
+      line-height: 1.6;
     }
+
     iframe {
-      border: 0;
-      margin: 2rem auto;
-      display: block;
       width: 100%;
-      max-width: 600px;
       height: 600px;
+      border: none;
+      margin: 20px 0;
     }
-    footer {
-      background-color: #333;
-      color: white;
-      padding: 1rem;
-      text-align: center;
-      margin-top: 2rem;
+
+    .bubble-icon {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background: #28a745;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    .bubble-icon img {
+      width: 30px;
+      height: 30px;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Welcome to the World of Artificial Intelligence</h1>
+    <h1>Artificial Intelligence</h1>
+    <p>Explore the fascinating world of AI and its impact on our lives.</p>
   </header>
-  <main>
-    <section>
-      <h2>About Artificial Intelligence</h2>
-      <p>
-        Artificial Intelligence (AI) refers to the simulation of human intelligence in machines
-        that are programmed to think and act like humans. These systems can learn, reason, and
-        make decisions, revolutionizing industries such as healthcare, finance, and education.
-      </p>
-      <p>
-        Discover how AI can transform your business and daily life by scheduling a consultation.
-      </p>
-    </section>
-    <iframe src="https://calendly.com/your-calendly-link" title="Schedule a Meeting"></iframe>
-  </main>
-  <footer>
-    <p>© 2025 AI Solutions. All rights reserved.</p>
-  </footer>
+
+  <section>
+    <h2>What is Artificial Intelligence?</h2>
+    <p>Artificial Intelligence (AI) refers to the simulation of human intelligence in machines that are programmed to think like humans and mimic their actions. It encompasses a wide range of technologies including machine learning, natural language processing, robotics, and more.</p>
+    
+    <h3>Applications of AI</h3>
+    <ul>
+      <li>Healthcare: Diagnosing diseases, personalized treatment.</li>
+      <li>Finance: Fraud detection, algorithmic trading.</li>
+      <li>Retail: Customer recommendations, inventory management.</li>
+      <li>Transportation: Self-driving cars, traffic optimization.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Schedule a Meeting</h2>
+    <iframe src="https://calendly.com/your-calendly-url"></iframe>
+  </section>
+
+  <div class="bubble-icon" onclick="window.location.href='https://optic-ai.vercel.app/call';">
+    <img src="https://cdn-icons-png.flaticon.com/512/597/597177.png" alt="Call Icon">
+  </div>
+
   <script>
-    (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="8dx-iXHM4PYd6S6waVZCL";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+    (function() {
+      if (!window.chatbase || window.chatbase("getState") !== "initialized") {
+        window.chatbase = (...arguments) => {
+          if (!window.chatbase.q) { window.chatbase.q = []; }
+          window.chatbase.q.push(arguments);
+        };
+        window.chatbase = new Proxy(window.chatbase, {
+          get(target, prop) {
+            if (prop === "q") { return target.q; }
+            return (...args) => target(prop, ...args);
+          }
+        });
+      }
+      const onLoad = function() {
+        const script = document.createElement("script");
+        script.src = "https://www.chatbase.co/embed.min.js";
+        script.id = "8dx-iXHM4PYd6S6waVZCL";
+        script.domain = "www.chatbase.co";
+        document.body.appendChild(script);
+      };
+      if (document.readyState === "complete") {
+        onLoad();
+      } else {
+        window.addEventListener("load", onLoad);
+      }
+    })();
   </script>
 </body>
 </html>
