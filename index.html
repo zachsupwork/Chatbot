@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Landing Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #282c34;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    section {
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+    }
+
+    .chatbot {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 350px;
+      height: 500px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Welcome to the Future of AI</h1>
+  <p>Discover the potential of Artificial Intelligence and schedule a meeting with us!</p>
+</header>
+
+<section>
+  <h2>About Artificial Intelligence</h2>
+  <p>
+    Artificial Intelligence (AI) is revolutionizing the way we live and work. From self-driving cars to personalized recommendations, AI is shaping the future of technology. 
+    Our AI solutions are designed to be ethical, scalable, and user-centric, empowering individuals and businesses to unlock their true potential.
+  </p>
+</section>
+
+<section>
+  <h2>Schedule a Meeting</h2>
+  <iframe src="https://calendly.com/your-calendly-link"></iframe>
+</section>
+
+<!-- Chatbot Section -->
+<div class="chatbot">
+  <script>
+    (function() {
+      if (!window.chatbase || window.chatbase("getState") !== "initialized") {
+        window.chatbase = (...arguments) => {
+          if (!window.chatbase.q) {
+            window.chatbase.q = [];
+          }
+          window.chatbase.q.push(arguments);
+        };
+        window.chatbase = new Proxy(window.chatbase, {
+          get(target, prop) {
+            if (prop === "q") {
+              return target.q;
+            }
+            return (...args) => target(prop, ...args);
+          },
+        });
+      }
+      const onLoad = function() {
+        const script = document.createElement("script");
+        script.src = "https://www.chatbase.co/embed.min.js";
+        script.id = "8dx-iXHM4PYd6S6waVZCL";
+        script.domain = "www.chatbase.co";
+        document.body.appendChild(script);
+      };
+      if (document.readyState === "complete") {
+        onLoad();
+      } else {
+        window.addEventListener("load", onLoad);
+      }
+    })();
+  </script>
+</div>
+
+</body>
+</html>
